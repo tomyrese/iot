@@ -2,9 +2,9 @@ from urllib import request
 import json
 
 def thingspeak_get():
-    api_key_read = "P9R0DZ4OCJEG1S2H"
-    channel_ID = "3099763"
-    url = f"https://api.thingspeak.com/channels/{channel_ID}/fields/2.json?api_key={api_key_read}&results=1"
+    api_key_read = "VX2U30805CIFDI30"
+    channel_ID = "3099700"
+    url = f"https://api.thingspeak.com/channels/{channel_ID}/fields/1.json?api_key={api_key_read}&results=1"
 
     req = request.Request(url, method="GET")
     r = request.urlopen(req)
@@ -13,8 +13,8 @@ def thingspeak_get():
 
     # Lấy giá trị field1 từ phần feeds
     feeds = respone_data.get('feeds', [])
-    if feeds and 'field2' in feeds[0]:
-        value = feeds[0]['field2']
+    if feeds and 'field1' in feeds[0]:
+        value = feeds[0]['field1']
     else:
         value = None
 
